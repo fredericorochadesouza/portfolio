@@ -1,221 +1,603 @@
-<!DOCTYPE HTML>
-<!--
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Spectral by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="landing is-preload">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Geodésia Films | Produção de Vídeo</title>
+    <!-- Google Fonts: similar ao site original (inter/poppins/roboto) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Swiper JS (carrossel moderno) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Font Awesome 6 (ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #111111;
+            line-height: 1.4;
+            scroll-behavior: smooth;
+        }
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">Spectral</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="generic.html">Generic</a></li>
-											<li><a href="elements.html">Elements</a></li>
-											<li><a href="#">Sign Up</a></li>
-											<li><a href="#">Log In</a></li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
+        /* container padrão */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
 
-				<!-- Banner -->
-					<section id="banner">
-						<section id="banner">
-                        <video autoplay muted loop playsinline style="position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%; object-fit: cover; z-index: 0; opacity: 0.5;">
-							<source src="images/banner.mp4" type="video/mp4">
-						</video>
-                        <div class="inner" style="position: relative; z-index: 1;"> <h2>Spectral</h2>
-							</ul>
-						</div>
-						<a href="#one" class="more scrolly">Learn More</a>
-					</section>
+        /* header sem logo, apenas nome da empresa */
+        .site-header {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            background-color: rgba(255,255,255,0.96);
+        }
 
-				<!-- One -->
-					<section id="one" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Arcu aliquet vel lobortis ata nisl<br />
-								eget augue amet aliquet nisl cep donec</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
-								fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
-							</header>
-							<ul class="icons major">
-								<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>
-								<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>
-								<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>
-							</ul>
-						</div>
-					</section>
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-				<!-- Two -->
-					<section id="two" class="wrapper style2 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Setor 01 (ex: Publicidade)</h2>
-								<p>Confira nossos trabalhos mais recentes nesta área.</p>
-							</header>
-							<div class="video-carousel">
-								<div class="video-card">
-									<div class="video-wrapper">
-										<video controls width="100%">
-											<source src="video1.mp4" type="video/mp4">
-										</video>
-									</div>
-									<h4>Título do Vídeo 1</h4>
-								</div>
-								<div class="video-card">
-									<div class="video-wrapper">
-										<video controls width="100%">
-											<source src="video2.mp4" type="video/mp4">
-										</video>
-									</div>
-									<h4>Título do Vídeo 2</h4>
-								</div>
-								<div class="video-card">
-									<div class="video-wrapper">
-										<video controls width="100%">
-											<source src="video3.mp4" type="video/mp4">
-										</video>
-									</div>
-									<h4>Título do Vídeo 3</h4>
-								</div>
-                                </div>
-						</div>
-					</section>
+        .brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #1a2a3a, #2c4c6c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
 
-				<!-- Three -->
-					<section id="three" class="wrapper style3 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Setor 02 (ex: Institucional)</h2>
-								<p>Mais uma seleção do nosso portfólio audiovisual.</p>
-							</header>
-							<div class="video-carousel">
-								<div class="video-card">
-									<video controls width="100%"><source src="video4.mp4"></video>
-									<h4>Título 4</h4>
-								</div>
-								<div class="video-card">
-									<video controls width="100%"><source src="video5.mp4"></video>
-									<h4>Título 5</h4>
-								</div>
-								<div class="video-card">
-									<video controls width="100%"><source src="video6.mp4"></video>
-									<h4>Título 6</h4>
-								</div>
-							</div>
-						</div>
-					</section>
+        .brand span {
+            font-weight: 300;
+            color: #2c5a7a;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+        }
 
-				<!-- CTA --><section id="cta" class="wrapper style4">
-						<div class="inner">
-							<header>
-								<h2>Fale Conosco</h2>
-								<p>Preencha o formulário abaixo para orçamentos e dúvidas.</p>
-							</header>
-                            <form method="post" action="SUA_URL_DO_FORMSPREE_AQUI">
-								<div class="row gtr-uniform">
-									<div class="col-6 col-12-xsmall">
-										<input type="text" name="name" id="name" value="" placeholder="Nome" / required>
-									</div>
-									<div class="col-6 col-12-xsmall">
-										<input type="email" name="email" id="email" value="" placeholder="E-mail" / required>
-									</div>
-									<div class="col-12">
-										<input type="text" name="company" id="company" value="" placeholder="Empresa (Opcional)" />
-									</div>
-									<div class="col-12">
-										<textarea name="message" id="message" placeholder="Sua mensagem" rows="6" required></textarea>
-									</div>
-									<div class="col-12">
-										<ul class="actions stacked">
-											<li><input type="submit" value="Enviar Mensagem" class="button fit primary" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
-                            </div>
-					</section>
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1f2f3e;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
 
-			</div>
+        .nav-links a:hover {
+            color: #c9452c;
+        }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/main.js"></script>
+        /* hero com carrossel de vídeo */
+        .video-carousel-section {
+            background: #0a121c;
+            padding: 60px 0 80px 0;
+            color: white;
+        }
 
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-			
-			<script>
-				$(document).ready(function(){
-					$('.video-carousel').slick({
-						dots: true,
-						infinite: true,
-						speed: 300,
-						slidesToShow: 2, // Quantos vídeos mostrar por vez no PC
-						slidesToScroll: 1,
-						responsive: [
-							{
-								breakpoint: 736, // Quando for celular
-								settings: {
-									slidesToShow: 1 // Mostra 1 vídeo por vez
-								}
-							}
-						]
-					});
-				});
-			</script>
-            <style>
-                /* Estilo rápido para afastar os vídeos dentro do carrossel */
-                .video-card {
-                    padding: 0 10px;
-                    text-align: center;
-                }
-                .slick-prev:before, .slick-next:before {
-                    color: black; /* Altera a cor das setas se necessário */
-                }
-            </style>
-            </body>
-</html>
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
 
-	</body>
+        .section-sub {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .swiper {
+            width: 100%;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background: #000;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
+            aspect-ratio: 16 / 9;
+            position: relative;
+        }
+
+        .swiper-slide iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: auto;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: #ffffff;
+            background: rgba(0,0,0,0.5);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            backdrop-filter: blur(4px);
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.3rem;
+        }
+
+        .swiper-pagination-bullet {
+            background: #ffffff;
+            opacity: 0.6;
+        }
+        .swiper-pagination-bullet-active {
+            background: #c9452c;
+            opacity: 1;
+        }
+
+        /* seções informativas estilo Meyer */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .card {
+            padding: 2rem;
+            background: #f8f9fc;
+            border-radius: 28px;
+            transition: 0.2s ease;
+        }
+
+        .card i {
+            font-size: 2.3rem;
+            color: #c9452c;
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: #3a4a5a;
+            line-height: 1.4;
+        }
+
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin: 4rem 0;
+            justify-content: space-between;
+        }
+
+        .services, .productions {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .services h3, .productions h3 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #c9452c;
+            padding-left: 1rem;
+        }
+
+        .services ul, .productions ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 0.7rem;
+        }
+
+        .services li, .productions li {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .services li i, .productions li i {
+            color: #c9452c;
+            font-size: 0.8rem;
+            width: 20px;
+        }
+
+        .clients {
+            background: #f0f3f8;
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: 48px;
+        }
+        .client-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            opacity: 0.7;
+        }
+        .client-logos span {
+            font-size: 1.2rem;
+            letter-spacing: -0.3px;
+        }
+
+        .process {
+            text-align: center;
+            margin: 4rem 0;
+        }
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .step {
+            background: white;
+            border-radius: 32px;
+            padding: 1.5rem;
+            width: 200px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .step .num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #c9452c;
+        }
+
+        /* formulário contato */
+        .contact-form-section {
+            background: #11181f;
+            color: white;
+            padding: 70px 0;
+            margin-top: 30px;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(2px);
+            border-radius: 32px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 60px;
+            border: none;
+            background: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            border-radius: 28px;
+            resize: vertical;
+            min-height: 110px;
+        }
+        .btn-submit {
+            background: #c9452c;
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 60px;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+            font-family: inherit;
+        }
+        .btn-submit:hover {
+            background: #a5341f;
+            transform: scale(0.98);
+        }
+        footer {
+            background: #0a0f15;
+            padding: 2rem 0;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.85rem;
+        }
+        hr {
+            margin: 2rem 0;
+            border-color: rgba(0,0,0,0.05);
+        }
+        @media (max-width: 800px) {
+            .container {
+                padding: 0 20px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .brand {
+                font-size: 1.5rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+            }
+            .swiper-button-next, .swiper-button-prev {
+                display: none;
+            }
+        }
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #c9452c;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #c9452c;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            background: #c9452c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="brand">GEODÉSIA <span>Films</span></div>
+        <div class="nav-links">
+            <a href="#">Início</a>
+            <a href="#">Serviços</a>
+            <a href="#">Produções</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- CARROSSEL DE VÍDEO - principal igual ao site referência, mas focado em vídeos -->
+    <section class="video-carousel-section">
+        <div class="container">
+            <h1 class="section-title">Maximizando o poder do vídeo</h1>
+            <p class="section-sub">Conte com nossa experiência e confiabilidade para dar vida às suas narrativas audiovisuais. Produções personalizadas com qualidade de cinema.</p>
+        </div>
+        <div class="container" style="max-width: 1200px;">
+            <div class="swiper videoSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 - Vídeo demonstrativo (embed do YouTube) -->
+                    <div class="swiper-slide">
+                        <iframe src="https://www.youtube.com/embed/6A7pIxU1ajE?si=K-5lJwY5V6eRqXvT&autoplay=0&mute=0&controls=1" title="Vídeo Showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <!-- Slide 2 - Vídeo criativo 2 -->
+                    <div class="swiper-slide">
+                        <iframe src="https://www.youtube.com/embed/7X8II6J-6NA?si=6j5R6aF9qNpLbS&autoplay=0&controls=1" title="Vídeo produção criativa" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <!-- Slide 3 - Vídeo institucional / narrativa -->
+                    <div class="swiper-slide">
+                        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?si=G1wRjf8yLcKxP&autoplay=0" title="Clipes institucionais" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <!-- Slide 4 - mais conteúdo exemplo drone/VR -->
+                    <div class="swiper-slide">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=exemplo&autoplay=0" title="Storytelling imersivo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção "Creative production meets a quality driven approach" inspirada no original -->
+    <div class="container">
+        <div class="info-grid">
+            <div class="card">
+                <i class="fas fa-video"></i>
+                <h3>Abordagem criativa e focada em resultados</h3>
+                <p>Da concepção do roteiro à finalização, entregamos vídeos que engajam e comunicam com excelência.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Mais de 30 anos de experiência</h3>
+                <p>Produções para marcas líderes na Austrália e no mundo. Nossa experiência garante entrega eficiente e eficaz.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-globe-americas"></i>
+                <h3>Filmagens em qualquer lugar</h3>
+                <p>Drones, realidade virtual, 360º e captações internacionais para que sua mensagem alcance fronteiras.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Serviços e Produções (estrutura dupla) -->
+    <div class="container">
+        <div class="two-columns">
+            <div class="services">
+                <h3>Serviços</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Soluções criativas</li>
+                    <li><i class="fas fa-check-circle"></i> Roteirização</li>
+                    <li><i class="fas fa-check-circle"></i> Gestão de produção</li>
+                    <li><i class="fas fa-check-circle"></i> Filmagens (qualquer lugar)</li>
+                    <li><i class="fas fa-check-circle"></i> Drones e 360º</li>
+                    <li><i class="fas fa-check-circle"></i> Realidade Virtual (VR)</li>
+                    <li><i class="fas fa-check-circle"></i> Voz over e narrações</li>
+                    <li><i class="fas fa-check-circle"></i> Motion graphics e animações</li>
+                    <li><i class="fas fa-check-circle"></i> Edição e pós-produção</li>
+                    <li><i class="fas fa-check-circle"></i> Live streaming</li>
+                    <li><i class="fas fa-check-circle"></i> Fotografia profissional</li>
+                </ul>
+            </div>
+            <div class="productions">
+                <h3>Produções</h3>
+                <ul>
+                    <li><i class="fas fa-play-circle"></i> Vídeos treinamento</li>
+                    <li><i class="fas fa-play-circle"></i> Comunicação interna</li>
+                    <li><i class="fas fa-play-circle"></i> Vídeos para clientes</li>
+                    <li><i class="fas fa-play-circle"></i> Vídeos institucionais</li>
+                    <li><i class="fas fa-play-circle"></i> Vídeos educacionais</li>
+                    <li><i class="fas fa-play-circle"></i> Segurança e procedimentos</li>
+                    <li><i class="fas fa-play-circle"></i> Vídeos de recrutamento</li>
+                    <li><i class="fas fa-play-circle"></i> Animações explicativas</li>
+                    <li><i class="fas fa-play-circle"></i> Filmes patrimônio cultural</li>
+                    <li><i class="fas fa-play-circle"></i> Multilíngue (tradução e vozes)</li>
+                    <li><i class="fas fa-play-circle"></i> Conteúdo para mineração e indústria</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clientes confiáveis -->
+    <div class="container clients">
+        <div style="text-align: center;">
+            <h2 style="font-size: 1.8rem;">Empresas que confiam na Geodésia Films</h2>
+            <div class="client-logos">
+                <span>⚡ FORTUNE 500</span>
+                <span>🏆 MINERAÇÃO GLOBAL</span>
+                <span>📡 TELECOM BR</span>
+                <span>🎓 EDUCAÇÃO CORPORATIVA</span>
+                <span>🏥 SAÚDE & INOVAÇÃO</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Processo de produção -->
+    <div class="container process">
+        <h2 class="section-title" style="color:#111;">Nosso processo de produção</h2>
+        <div class="steps">
+            <div class="step"><span class="num">1.</span> <h4>Briefing & Conceito</h4><p>Entendemos suas metas e público</p></div>
+            <div class="step"><span class="num">2.</span> <h4>Pré-produção</h4><p>Roteiro, storyboard e planejamento</p></div>
+            <div class="step"><span class="num">3.</span> <h4>Produção</h4><p>Filmagens, drones, captação</p></div>
+            <div class="step"><span class="num">4.</span> <h4>Pós-produção</h4><p>Edição, motion, trilha e entrega</p></div>
+        </div>
+        <div style="margin: 2rem 0;">
+            <a href="#contato" class="btn-outline">Comece seu projeto →</a>
+        </div>
+    </div>
+
+    <!-- FORMULÁRIO DE CONTATO no final da página -->
+    <section id="contato" class="contact-form-section">
+        <div class="container form-container">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; text-align: center;">Vamos criar algo extraordinário</h2>
+            <p style="text-align: center; margin-bottom: 2rem; opacity: 0.9;">Entre em contato e solicite um orçamento sem compromisso.</p>
+            <form id="contactForm" action="#" method="POST">
+                <div class="form-group">
+                    <input type="text" id="nome" name="nome" placeholder="Nome completo *" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="E-mail profissional *" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="telefone" name="telefone" placeholder="Telefone / WhatsApp">
+                </div>
+                <div class="form-group">
+                    <textarea id="mensagem" name="mensagem" placeholder="Conte-nos sobre seu projeto ou ideia... *" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar mensagem <i class="fas fa-arrow-right"></i></button>
+                <p style="font-size: 0.7rem; text-align: center; margin-top: 1rem;">Ao enviar, você concorda com nossa política de privacidade.</p>
+            </form>
+            <div id="formFeedback" style="margin-top: 1rem; text-align: center; font-weight: 500;"></div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 Geodésia Films – Produção Audiovisual com excelência criativa. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem;"><i class="fas fa-map-marker-alt"></i> Perth | Sydney | São Paulo  |  <i class="fas fa-envelope"></i> contato@geodesiafilms.com</p>
+    </div>
+</footer>
+
+<script>
+    // inicialização do carrossel de vídeo
+    const swiper = new Swiper('.videoSwiper', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        slidesPerView: 1,
+        spaceBetween: 20,
+        breakpoints: {
+            768: {
+                slidesPerView: 1.2,
+                centeredSlides: false,
+            },
+            1024: {
+                slidesPerView: 1.4,
+                spaceBetween: 30,
+                centeredSlides: false,
+            }
+        },
+        effect: 'slide',
+        speed: 700,
+    });
+
+    // gerenciamento simples do formulário (feedback visual, sem envio real mas com validação)
+    const form = document.getElementById('contactForm');
+    const feedbackDiv = document.getElementById('formFeedback');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mensagem = document.getElementById('mensagem').value.trim();
+        
+        if(!nome || !email || !mensagem) {
+            feedbackDiv.innerHTML = '<span style="color: #ff9f8f;">Por favor, preencha todos os campos obrigatórios.</span>';
+            return;
+        }
+        if(!email.includes('@') || !email.includes('.')) {
+            feedbackDiv.innerHTML = '<span style="color: #ff9f8f;">Insira um e-mail válido.</span>';
+            return;
+        }
+        
+        // Simulação de envio - estrutura apenas visual, mas exibe sucesso
+        feedbackDiv.innerHTML = '<span style="color: #a8e6cf;">✓ Mensagem enviada! Em breve nossa equipe retornará.</span>';
+        form.reset();
+        setTimeout(() => {
+            feedbackDiv.innerHTML = '';
+        }, 5000);
+        
+        // console log para demonstração
+        console.log('Formulário Geodésia Films:', { nome, email, mensagem });
+    });
+</script>
+</body>
 </html>
